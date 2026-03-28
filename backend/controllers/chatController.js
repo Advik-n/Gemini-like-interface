@@ -14,7 +14,7 @@ const chatSessions = new Map()
 const getOrCreateSession = (chatId) => {
   if (!chatSessions.has(chatId)) {
     const model = genAI.getGenerativeModel({ 
-      model: 'gemini-1.5-flash-latest',
+      model: 'gemini-2.5-flash',
       generationConfig: {
         temperature: 0.9,
         topK: 40,
