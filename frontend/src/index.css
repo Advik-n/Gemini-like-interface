@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+/* Code block styling */
+pre {
+  position: relative;
+  border-radius: 12px !important;
+  margin: 1rem 0 !important;
+}
+
+pre code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.875rem !important;
+  line-height: 1.6 !important;
+}
+
+code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* Inline code */
+:not(pre) > code {
+  background: rgba(127, 127, 127, 0.15);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.dark :not(pre) > code {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Highlight.js theme overrides */
+.hljs {
+  background: #1e1e1e !important;
+  padding: 1.25rem !important;
+  border-radius: 12px !important;
+}
+
+.dark .hljs {
+  background: #0d0d0d !important;
+}
+
+/* Markdown table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+th, td {
+  border: 1px solid #e5e7eb;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+th {
+  background: #f9fafb;
+  font-weight: 600;
+}
+
+.dark th {
+  background: #2a2a2a;
+  border-color: #404040;
+}
+
+.dark td {
+  border-color: #404040;
+}
+
+/* Link styling */
+.prose a {
+  color: #3b82f6;
+  text-decoration: underline;
+}
+
+.prose a:hover {
+  color: #2563eb;
+}
+
+/* List styling */
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.prose ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.prose li {
+  margin: 0.25rem 0;
+}
+
+/* Blockquote */
+.prose blockquote {
+  border-left: 4px solid #3b82f6;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+  color: #6b7280;
+}
+
+.dark .prose blockquote {
+  color: #9ca3af;
+}
+
+/* Headings in markdown */
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.prose h1 { font-size: 1.75rem; }
+.prose h2 { font-size: 1.5rem; }
+.prose h3 { font-size: 1.25rem; }
+.prose h4 { font-size: 1.125rem; }
+
+.prose p {
+  margin: 0.75rem 0;
+  line-height: 1.7;
+}
+
+/* Floating lines background animation */
+@keyframes float-line {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-20px) rotate(2deg);
+    opacity: 0.6;
+  }
+}
+
+.floating-line {
+  animation: float-line 6s ease-in-out infinite;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #4285f4 0%, #9b72cb 50%, #d96570 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+  background: rgba(30, 30, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Message bubble animations */
+@keyframes message-appear {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.message-bubble {
+  animation: message-appear 0.3s ease-out forwards;
+}
+
+/* Typing indicator */
+.typing-dot {
+  animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(1) { animation-delay: 0s; }
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
