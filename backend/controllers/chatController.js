@@ -1,8 +1,12 @@
 import { GoogleGenerativeAI } from '@google/generative-ai'
 
-// Initialize Gemini AI
-const API_KEY = process.env.GEMINI_API_KEY || 'AIzaSyAyjaxJ4FDPDdHmLzZvQgkz-TYecVdVXQ4'
-const genAI = new GoogleGenerativeAI(API_KEY)
+// Initialize Gemini AI - Get your API key from https://aistudio.google.com/apikey
+const API_KEY = process.env.GEMINI_API_KEY
+if (!API_KEY) {
+  console.error('⚠️  GEMINI_API_KEY not set in backend/.env file')
+  console.error('   Get a new key from: https://aistudio.google.com/apikey')
+}
+const genAI = new GoogleGenerativeAI(API_KEY || '')
 
 // Store for chat sessions (in-memory for demo; use database in production)
 const chatSessions = new Map()
@@ -10,7 +14,7 @@ const chatSessions = new Map()
 const getOrCreateSession = (chatId) => {
   if (!chatSessions.has(chatId)) {
     const model = genAI.getGenerativeModel({ 
-      model: 'gemini-2.5-flash-preview-05-20',
+      model: 'gemini-1.5-flash-latest',
       generationConfig: {
         temperature: 0.9,
         topK: 40,

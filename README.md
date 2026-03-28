@@ -131,13 +131,15 @@ Navigate to `http://localhost:5173`
 
 ### Environment Variables
 
-The backend uses the following environment variables (in `backend/.env`):
+Create a `backend/.env` file with your API key:
 
 ```env
 GEMINI_API_KEY=your_api_key_here
 PORT=3001
 NODE_ENV=development
 ```
+
+**Get your API key from:** https://aistudio.google.com/apikey
 
 ## 🛠️ API Endpoints
 
