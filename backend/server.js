@@ -1,10 +1,5 @@
 import express from 'express'
 import cors from 'cors'
-import dotenv from 'dotenv'
-
-// Load environment variables FIRST before importing routes
-dotenv.config()
-
 import chatRoutes from './routes/chat.js'
 
 const app = express()
