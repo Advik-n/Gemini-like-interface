@@ -98,7 +98,7 @@ const Sidebar = ({
           >
             <MessageSquarePlus className="w-5 h-5" />
             <span>New Chat</span>
-            <span className="ml-auto text-xs opacity-75 hidden sm:block">Ctrl+N</span>
+            <span className="ml-auto text-xs opacity-75 hidden sm:block">Ctrl+O</span>
           </motion.button>
         </div>
 

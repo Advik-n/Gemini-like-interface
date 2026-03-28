@@ -52,35 +52,6 @@ const ChatWindow = ({ messages, isLoading }) => {
               <p className="text-gray-500 dark:text-gray-400 text-center max-w-md">
                 I'm Gemini, your AI assistant. Ask me anything and I'll do my best to help you.
               </p>
-
-              <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-lg">
-                {[
-                  { title: 'Write code', desc: 'Help me write a Python function' },
-                  { title: 'Explain concepts', desc: 'What is machine learning?' },
-                  { title: 'Creative writing', desc: 'Write a short story' },
-                  { title: 'Problem solving', desc: 'Debug my code' }
-                ].map((suggestion, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 + i * 0.1 }}
-                    className="
-                      p-4 rounded-2xl cursor-pointer
-                      bg-white/50 dark:bg-dark-card/50
-                      border border-gray-200/50 dark:border-dark-border/50
-                      hover:border-purple-500/50 hover:bg-white dark:hover:bg-dark-card
-                      transition-all duration-300
-                      group
-                    "
-                  >
-                    <h3 className="font-medium text-sm group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
-                      {suggestion.title}
-                    </h3>
-                    <p className="text-xs text-gray-400 mt-1">{suggestion.desc}</p>
-                  </motion.div>
-                ))}
-              </div>
             </motion.div>
           ) : (
             messages.map((message, index) => (

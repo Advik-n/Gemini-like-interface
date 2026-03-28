@@ -52,7 +52,7 @@ function App() {
   // Keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.ctrlKey && e.key === 'n') {
+      if (e.ctrlKey && e.key === 'o') {
         e.preventDefault()
         createNewChat()
       }

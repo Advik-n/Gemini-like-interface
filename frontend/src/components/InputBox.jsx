@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, forwardRef, useImperativeHandle } from 'react'
 import { motion } from 'framer-motion'
-import { Send, Mic, Paperclip } from 'lucide-react'
+import { Send } from 'lucide-react'
 
 const InputBox = forwardRef(({ onSend, disabled }, ref) => {
   const [message, setMessage] = useState('')
@@ -27,7 +27,6 @@ const InputBox = forwardRef(({ onSend, disabled }, ref) => {
     if (message.trim() && !disabled) {
       onSend(message)
       setMessage('')
-      // Reset textarea height
       if (textareaRef.current) {
         textareaRef.current.style.height = 'auto'
       }
@@ -58,27 +57,13 @@ const InputBox = forwardRef(({ onSend, disabled }, ref) => {
           <div className="
             relative
             flex items-end gap-2
-            p-2 rounded-2xl
+            p-2 pl-4 rounded-2xl
             bg-white dark:bg-dark-card
             border border-gray-200 dark:border-dark-border
             shadow-lg shadow-gray-200/50 dark:shadow-black/20
             focus-within:border-purple-500/50 focus-within:ring-2 focus-within:ring-purple-500/20
             transition-all duration-300
           ">
-            {/* Attachment button (decorative for now) */}
-            <button
-              type="button"
-              className="
-                p-2.5 rounded-xl
-                text-gray-400 hover:text-gray-600 dark:hover:text-gray-300
-                hover:bg-gray-100 dark:hover:bg-dark-hover
-                transition-colors
-              "
-            >
-              <Paperclip className="w-5 h-5" />
-            </button>
-
-            {/* Textarea */}
             <textarea
               ref={textareaRef}
               value={message}
@@ -91,7 +76,7 @@ const InputBox = forwardRef(({ onSend, disabled }, ref) => {
                 flex-1
                 resize-none
                 max-h-[200px]
-                py-3 px-1
+                py-3
                 bg-transparent
                 text-gray-800 dark:text-gray-100
                 placeholder:text-gray-400
@@ -101,20 +86,6 @@ const InputBox = forwardRef(({ onSend, disabled }, ref) => {
               "
             />
 
-            {/* Microphone button (decorative for now) */}
-            <button
-              type="button"
-              className="
-                p-2.5 rounded-xl
-                text-gray-400 hover:text-gray-600 dark:hover:text-gray-300
-                hover:bg-gray-100 dark:hover:bg-dark-hover
-                transition-colors
-              "
-            >
-              <Mic className="w-5 h-5" />
-            </button>
-
-            {/* Send button */}
             <motion.button
               type="submit"
               disabled={!message.trim() || disabled}
@@ -134,7 +105,6 @@ const InputBox = forwardRef(({ onSend, disabled }, ref) => {
           </div>
         </form>
 
-        {/* Footer hint */}
         <p className="text-center text-xs text-gray-400 mt-3">
           Press <kbd className="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-dark-card border border-gray-200 dark:border-dark-border text-gray-500 font-mono">Enter</kbd> to send, <kbd className="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-dark-card border border-gray-200 dark:border-dark-border text-gray-500 font-mono">Shift + Enter</kbd> for new line
         </p>
